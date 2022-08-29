@@ -20,10 +20,6 @@ public class LinkedList<E> implements Iterable<E> {
     Node<E> head;
     int length = 0;
 
-    public LinkedList() {
-
-    }
-
     void add(E value) {
         head = new Node(value, head);
         length++;
