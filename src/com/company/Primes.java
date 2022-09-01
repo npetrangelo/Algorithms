@@ -29,9 +29,9 @@ public class Primes {
 
 class Node2<E> {
     E value;
-    Node next;
+    Node2 next;
 
-    public Node2(E value, Node next) {
+    public Node2(E value, Node2 next) {
         this.value = value;
         this.next = next;
     }
@@ -42,11 +42,11 @@ class Node2<E> {
 }
 
 class LinkedList2<E> implements Iterable<E> {
-    Node<E> head;
+    Node2<E> head;
     int length = 0;
 
     void add(E value) {
-        head = new Node(value, head);
+        head = new Node2(value, head);
         length++;
     }
 
@@ -55,7 +55,7 @@ class LinkedList2<E> implements Iterable<E> {
             throw new IndexOutOfBoundsException();
         }
 
-        Node<E> node = this.head;
+        Node2<E> node = this.head;
         for (int i = 0; i < n; i++) {
             node = node.next;
         }
@@ -65,7 +65,7 @@ class LinkedList2<E> implements Iterable<E> {
     @Override
     public Iterator<E> iterator() {
         return new Iterator() {
-            Node<E> current = head;
+            Node2<E> current = head;
 
             @Override
             public boolean hasNext() {
