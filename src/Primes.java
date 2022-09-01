@@ -1,8 +1,10 @@
+import util.LinkedList;
+
 import java.util.Iterator;
 import java.util.Scanner;
 
 public class Primes {
-    static LinkedList2<Integer> primes = new LinkedList2<>();
+    static LinkedList<Integer> primes = new LinkedList<>();
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -22,59 +24,5 @@ public class Primes {
             }
         }
         return true;
-    }
-}
-
-class Node2<E> {
-    E value;
-    Node2 next;
-
-    public Node2(E value, Node2 next) {
-        this.value = value;
-        this.next = next;
-    }
-
-    public Node2(E value) {
-        this(value, null);
-    }
-}
-
-class LinkedList2<E> implements Iterable<E> {
-    Node2<E> head;
-    int length = 0;
-
-    void add(E value) {
-        head = new Node2(value, head);
-        length++;
-    }
-
-    E get(int n) throws IndexOutOfBoundsException {
-        if (n >= length) {
-            throw new IndexOutOfBoundsException();
-        }
-
-        Node2<E> node = this.head;
-        for (int i = 0; i < n; i++) {
-            node = node.next;
-        }
-        return node.value;
-    }
-
-    @Override
-    public Iterator<E> iterator() {
-        return new Iterator() {
-            Node2<E> current = head;
-
-            @Override
-            public boolean hasNext() {
-                return current != null && current.next != null;
-            }
-
-            @Override
-            public E next() {
-                current = current.next;
-                return current.value;
-            }
-        };
     }
 }

@@ -1,4 +1,4 @@
-package com.company;
+package util;
 
 import java.util.Iterator;
 
@@ -20,7 +20,7 @@ public class LinkedList<E> implements Iterable<E> {
     Node<E> head;
     int length = 0;
 
-    void add(E value) {
+    public void add(E value) {
         head = new Node(value, head);
         length++;
     }
