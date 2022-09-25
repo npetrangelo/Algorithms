@@ -22,7 +22,7 @@ public class HorizontalCrossing {
 //        System.out.println(Arrays.toString(points));
 
         // sort points low y to high y
-        Arrays.sort(points, (p1, p2) -> {
+        Sort.mergesort(points, (p1, p2) -> {
             if (p1.y != p2.y) {
                 return p1.y - p2.y;
             }
@@ -34,7 +34,7 @@ public class HorizontalCrossing {
                 return 1;
             }
             return 0;
-        });
+        }, 0, points.length-1);
 
 //        System.out.println(Arrays.toString(points));
         int numIntersections = 0, maxIntersections = 0;
