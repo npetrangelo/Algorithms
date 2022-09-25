@@ -1,7 +1,11 @@
 import java.util.Comparator;
 
 public class Sort {
-    public static <T> void mergesort(T[] a, Comparator<? super T> c, int beg, int end) {
+    public static <T> void mergesort(T[] a, Comparator<? super T> c) {
+        mergesort(a, c, 0, a.length-1);
+    }
+
+    private static <T> void mergesort(T[] a, Comparator<? super T> c, int beg, int end) {
         if (beg >= end) {
             return;
         }

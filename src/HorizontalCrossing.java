@@ -34,7 +34,7 @@ public class HorizontalCrossing {
                 return 1;
             }
             return 0;
-        }, 0, points.length-1);
+        });
 
 //        System.out.println(Arrays.toString(points));
         int numIntersections = 0, maxIntersections = 0;
