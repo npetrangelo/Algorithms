@@ -1,6 +1,17 @@
 import java.util.Comparator;
 
 public class Sort {
+
+    public static void mergesort(int[] a) {
+        Integer[] copy = new Integer[a.length];
+        for (int i = 0; i < a.length; i++) {
+            copy[i] = a[i];
+        }
+        mergesort(copy, (i, j) -> i - j);
+        for (int i = 0; i < a.length; i++) {
+            a[i] = copy[i];
+        }
+    }
     public static <T> void mergesort(T[] a, Comparator<? super T> c) {
         mergesort(a, c, 0, a.length-1);
     }
