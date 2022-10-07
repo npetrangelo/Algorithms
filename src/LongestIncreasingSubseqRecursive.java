@@ -16,7 +16,7 @@ public class LongestIncreasingSubseqRecursive {
         System.out.println(max);
     }
 
-    private static int incrSubseqRecursive(int j, int[] A) {
+    public static int incrSubseqRecursive(int j, int[] A) {
         if (A.length == 1) return 1;
         int maxLength = 0;
         for (int i = 0; i < j; i++) {

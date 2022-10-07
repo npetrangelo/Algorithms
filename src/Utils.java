@@ -35,6 +35,21 @@ public class Utils {
         return x; // k between front and back
     }
 
+    public static int longestIncSubSeq(int[] A) {
+        int[] S = new int[A.length];
+        int max = 0;
+        for (int j = 0; j < A.length; j++) {
+            S[j] = 1;
+            for (int k = 0; k < j; k++) {
+                if (A[k] < A[j] && S[j] < S[k]+1) {
+                    S[j] = S[k]+1;
+                }
+            }
+            if (S[j] > max) max = S[j];
+        }
+        return max;
+    }
+
     public static void mergesort(int[] a) {
         Integer[] copy = new Integer[a.length];
         for (int i = 0; i < a.length; i++) {
