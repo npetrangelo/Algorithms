@@ -1,6 +1,39 @@
 import java.util.Comparator;
 
-public class Sort {
+public class Utils {
+
+    public static int[] copyOfRange(int[] A, int from, int to) {
+        int newLength = to - from + 1;
+        if (newLength < 0) {
+            throw new IllegalArgumentException(from + " > " + to);
+        }
+        int[] copy = new int[newLength];
+        for (int i = 0; i < copy.length; i++) {
+            copy[i] = A[i+from];
+        }
+        return copy;
+    }
+
+    public static int selectRand(int[] A, int k) {
+        if (A.length == 1) return A[0];
+        int i = (int) (A.length * Math.random());
+        int x = A[i];
+        int[] newA = new int[A.length];
+        int front = 0, back = A.length - 1;
+        for (int index = 0; index < A.length; index++) {
+            if (A[index] < x) {
+                newA[front++] = A[index];
+            } else if (A[index] > x) {
+                newA[back--] = A[index];
+            }
+        }
+        for (int index = front; index <= back; index++) {
+            newA[index] = x;
+        }
+        if (k < front) return selectRand(Utils.copyOfRange(newA, 0, front - 1), k);
+        if (k > back) return selectRand(Utils.copyOfRange(newA, back + 1, newA.length - 1), k - (back+1));
+        return x; // k between front and back
+    }
 
     public static void mergesort(int[] a) {
         Integer[] copy = new Integer[a.length];

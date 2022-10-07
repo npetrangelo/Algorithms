@@ -15,8 +15,8 @@ public class Donut {
             police[i] = new Police(xs[i], ys[i]);
         }
 
-        int x = Selector.selectRand(xs, xs.length/2);
-        int y = Selector.selectRand(ys, ys.length/2);
+        int x = Utils.selectRand(xs, xs.length/2);
+        int y = Utils.selectRand(ys, ys.length/2);
 
         System.out.println(distanceSum(x, y));
     }

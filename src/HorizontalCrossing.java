@@ -22,7 +22,7 @@ public class HorizontalCrossing {
 //        System.out.println(Arrays.toString(points));
 
         // sort points low y to high y
-        Sort.mergesort(points, (p1, p2) -> {
+        Utils.mergesort(points, (p1, p2) -> {
             if (p1.y != p2.y) {
                 return p1.y - p2.y;
             }

@@ -7,10 +7,10 @@ public class Main {
 	// write your code here
         System.out.println("Hello World");
         int[] arr = {6,5,3,2,6,78,8,6,4,23};
-        Sort.mergesort(arr);
+        Utils.mergesort(arr);
         System.out.println(Arrays.toString(arr));
 
         int[] foo = {6,5,3,2,6,78,8,6,4,23};
-        System.out.println(Selector.selectRand(foo, foo.length/2));
+        System.out.println(Utils.selectRand(foo, foo.length/2));
     }
 }
