@@ -17,8 +17,24 @@ class Node<E> {
 }
 
 public class LinkedList<E> implements Iterable<E> {
-    Node<E> head;
-    int length = 0;
+    private Node<E> head;
+    private int length;
+
+    public LinkedList() {
+        this.head = null;
+        this.length = 0;
+    }
+
+    public static LinkedList shallowCopyOf(LinkedList l) {
+        LinkedList copy = new LinkedList();
+        copy.length = l.length;
+        copy.head = l.head;
+        return copy;
+    }
+
+    public int length() {
+        return this.length;
+    }
 
     public void add(E value) {
         head = new Node(value, head);
@@ -44,14 +60,27 @@ public class LinkedList<E> implements Iterable<E> {
 
             @Override
             public boolean hasNext() {
-                return current != null && current.next != null;
+                return current != null;
             }
 
             @Override
             public E next() {
+                E value = current.value;
                 current = current.next;
-                return current.value;
+                return value;
             }
         };
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("'");
+        for (E item : this) {
+            sb.append(item.toString());
+        }
+        sb.append("'");
+        sb.reverse();
+        return sb.toString();
     }
 }
