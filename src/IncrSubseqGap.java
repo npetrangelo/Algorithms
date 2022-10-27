@@ -24,7 +24,6 @@ public class IncrSubseqGap {
             S[i] = a[i] + maxSum;
             if (S[i] > max) max = S[i];
         }
-        System.out.println(Arrays.toString(S));
         System.out.println(max);
     }
 }
