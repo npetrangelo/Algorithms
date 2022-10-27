@@ -75,12 +75,11 @@ public class LinkedList<E> implements Iterable<E> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("'");
+        sb.append("[");
         for (E item : this) {
-            sb.append(item.toString());
+            sb.insert(1, item.toString() + ",");
         }
-        sb.append("'");
-        sb.reverse();
+        sb.append("]");
         return sb.toString();
     }
 }
