@@ -20,7 +20,7 @@ public class IntervalsBreaks {
         for (int j = 1; j <= n; j++) {
             int k = j;
             // Find the first k such that k ends b[k][j] units time before j starts
-            for ( ; k > 0 && intervals[j-1].start - intervals[k-1].end < b[k-1][j-1]; k--);
+            while (k > 0 && intervals[j-1].start - intervals[k-1].end < b[k-1][j-1]) k--;
             S[j] = Math.max(S[j-1], S[k]+1);
         }
         System.out.println(S[n]);
