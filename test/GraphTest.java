@@ -17,8 +17,9 @@ public class GraphTest {
     void testBFS() {
         Graph.BreadthFirst BFS = graph.breadthFirst(0);
         StringBuilder sb = new StringBuilder();
-        for (int node = BFS.next(); BFS.hasNext(); node = BFS.next()) {
-            sb.append(node + ",");
+
+        while (BFS.hasNext()) {
+            sb.append(BFS.next() + ",");
         }
         assertEquals("0,1,2,3,", sb.toString());
     }
@@ -27,8 +28,8 @@ public class GraphTest {
     void testDFS() {
         Graph.DepthFirst DFS = graph.depthFirst(0);
         StringBuilder sb = new StringBuilder();
-        for (int node = DFS.next(); DFS.hasNext(); node = DFS.next()) {
-            sb.append(node + ",");
+        while (DFS.hasNext()) {
+            sb.append(DFS.next() + ",");
         }
         assertEquals("0,2,3,1,", sb.toString());
     }

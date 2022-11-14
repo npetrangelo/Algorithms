@@ -9,14 +9,19 @@ public class Queue<E> extends LinkedList<E> {
     public E poll() {
         if (empty()) return null;
         E value = head.value;
-        head = head.next;
+        if (head == tail) {
+            head = null;
+            tail = null;
+        } else {
+            head = head.next;
+        }
         length--;
         return value;
     }
 
     @Override
     public void add(E value) {
-        if (head == null) {
+        if (empty()) {
             head = new Node(value, null);
             tail = head;
         } else {

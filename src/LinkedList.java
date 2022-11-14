@@ -75,7 +75,7 @@ public class LinkedList<E> implements Iterable<E> {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         for (E item : this) {
-            sb.insert(1, item.toString() + ",");
+            sb.append(item.toString() + ",");
         }
         sb.append("]");
         return sb.toString();
