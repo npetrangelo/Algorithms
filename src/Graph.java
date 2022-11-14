@@ -42,12 +42,12 @@ public class Graph {
 
     class BreadthFirst implements Iterator<Integer> {
         boolean[] seen = new boolean[degrees.length];
-        LinkedList<Integer> queue = new LinkedList<>();
+        Queue<Integer> queue = new Queue<>();
         public BreadthFirst(int start) {
             for (int i = 0; i < degrees.length; i++) {
                 seen[i] = false;
             }
-            queue.qAdd(start);
+            queue.add(start);
         }
 
         @Override
@@ -57,12 +57,12 @@ public class Graph {
 
         @Override
         public Integer next() {
-            int s = queue.pop();
+            int s = queue.poll();
             seen[s] = true;
             int[] neighbors = adjList[s];
             for (int i = 0; i < degrees[s]; i++) {
                 if (!seen[neighbors[i]]) {
-                    queue.qAdd(neighbors[i]);
+                    queue.add(neighbors[i]);
                 }
             }
             return s;
@@ -71,7 +71,7 @@ public class Graph {
 
     class DepthFirst implements Iterator<Integer> {
         boolean[] seen = new boolean[degrees.length];;
-        LinkedList<Integer> stack = new LinkedList<>();
+        Stack<Integer> stack = new Stack<>();
         public DepthFirst(int start) {
             for (int i = 0; i < degrees.length; i++) {
                 seen[i] = false;
