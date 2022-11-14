@@ -15,21 +15,19 @@ public class GraphTest {
 
     @Test
     void testBFS() {
-        Graph.BreadthFirst BFS = graph.breadthFirst(0);
         StringBuilder sb = new StringBuilder();
 
-        while (BFS.hasNext()) {
-            sb.append(BFS.next() + ",");
+        for (int node : graph.BFS(0)) {
+            sb.append(node + ",");
         }
         assertEquals("0,1,2,3,", sb.toString());
     }
 
     @Test
     void testDFS() {
-        Graph.DepthFirst DFS = graph.depthFirst(0);
         StringBuilder sb = new StringBuilder();
-        while (DFS.hasNext()) {
-            sb.append(DFS.next() + ",");
+        for (int node : graph.DFS(0)) {
+            sb.append(node + ",");
         }
         assertEquals("0,2,3,1,", sb.toString());
     }

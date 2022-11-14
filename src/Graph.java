@@ -19,12 +19,12 @@ public class Graph {
         degrees[end]++;
     }
 
-    public BreadthFirst breadthFirst(int start) {
-        return new BreadthFirst(start);
+    public Iterable<Integer> BFS(int start) {
+        return () -> new BreadthFirst(start);
     }
 
-    public DepthFirst depthFirst(int start) {
-        return new DepthFirst(start);
+    public Iterable<Integer> DFS(int start) {
+        return () -> new DepthFirst(start);
     }
 
     @Override
@@ -40,7 +40,7 @@ public class Graph {
         return sb.toString();
     }
 
-    class BreadthFirst implements Iterator<Integer> {
+    private class BreadthFirst implements Iterator<Integer> {
         boolean[] seen = new boolean[degrees.length];
         Queue<Integer> queue = new Queue<>();
         public BreadthFirst(int start) {
@@ -69,7 +69,7 @@ public class Graph {
         }
     }
 
-    class DepthFirst implements Iterator<Integer> {
+    private class DepthFirst implements Iterator<Integer> {
         boolean[] seen = new boolean[degrees.length];;
         Stack<Integer> stack = new Stack<>();
         public DepthFirst(int start) {
