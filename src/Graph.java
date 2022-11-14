@@ -59,11 +59,10 @@ public class Graph {
         @Override
         public Integer next() {
             int s = queue.poll();
-            int[] neighbors = adjList[s];
-            for (int i = 0; i < degrees[s]; i++) {
-                if (!seen[neighbors[i]]) {
-                    seen[neighbors[i]] = true;
-                    queue.add(neighbors[i]);
+            for (int neighbor : adjList[s]) {
+                if (!seen[neighbor]) {
+                    seen[neighbor] = true;
+                    queue.add(neighbor);
                 }
             }
             return s;
@@ -89,11 +88,10 @@ public class Graph {
         @Override
         public Integer next() {
             int s = stack.pop();
-            int[] neighbors = adjList[s];
-            for (int i = 0; i < degrees[s]; i++) {
-                if (!seen[neighbors[i]]) {
-                    seen[neighbors[i]] = true;
-                    stack.add(neighbors[i]);
+            for (int neighbor : adjList[s]) {
+                if (!seen[neighbor]) {
+                    seen[neighbor] = true;
+                    stack.add(neighbor);
                 }
             }
             return s;
