@@ -1,5 +1,3 @@
-import util.LinkedList;
-
 import java.util.Scanner;
 
 public class IncrSubseqGap {
