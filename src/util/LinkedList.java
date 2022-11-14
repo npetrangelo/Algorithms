@@ -18,10 +18,12 @@ class Node<E> {
 
 public class LinkedList<E> implements Iterable<E> {
     private Node<E> head;
+    private Node<E> tail;
     private int length;
 
     public LinkedList() {
         this.head = null;
+        this.tail = null;
         this.length = 0;
     }
 
@@ -29,6 +31,7 @@ public class LinkedList<E> implements Iterable<E> {
         LinkedList copy = new LinkedList();
         copy.length = l.length;
         copy.head = l.head;
+        copy.tail = l.tail;
         return copy;
     }
 
@@ -38,6 +41,29 @@ public class LinkedList<E> implements Iterable<E> {
 
     public void add(E value) {
         head = new Node(value, head);
+        length++;
+    }
+
+    public E peek() {
+        return head.value;
+    }
+
+    public E pop() {
+        if (empty()) return null;
+        E value = head.value;
+        head = head.next;
+        length--;
+        return value;
+    }
+
+    public void qAdd(E value) {
+        if (head == null) {
+            head = new Node(value, null);
+            tail = head;
+        } else {
+            tail.next = new Node(value, null);
+            tail = tail.next;
+        }
         length++;
     }
 
@@ -51,6 +77,10 @@ public class LinkedList<E> implements Iterable<E> {
             node = node.next;
         }
         return node.value;
+    }
+
+    public boolean empty() {
+        return length == 0;
     }
 
     @Override
