@@ -1,15 +1,17 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Comparator;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class HeapTest {
-    static Heap heap;
+    static Heap<Integer> heap;
 
     @BeforeEach
     void init() {
-        heap = new Heap(10);
+        heap = new Heap<>(10, Comparator.comparingInt(a -> a));
     }
 
     @Test
