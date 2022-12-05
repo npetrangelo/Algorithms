@@ -37,6 +37,8 @@ public class HeapTest {
         }
         heap.changeKeyValue(1, 11);
         assertEquals(1, heap.extractMin());
+        heap.changeKeyValue(10, 0);
+        assertEquals(0, heap.extractMin());
     }
 
     @Test

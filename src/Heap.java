@@ -22,8 +22,13 @@ public class Heap {
     }
 
     public void changeKeyValue(int i, int value) {
-        arr[i] = value;
-        heapifyDown(i);
+        if (value > arr[i]) {
+            arr[i] = value;
+            heapifyDown(i);
+        } else {
+            arr[i] = value;
+            heapifyUp(i);
+        }
     }
 
     private void swap(int i, int j) {
