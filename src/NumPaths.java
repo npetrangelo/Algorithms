@@ -1,6 +1,3 @@
-import util.LinkedList;
-
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class NumPaths {
@@ -15,16 +12,15 @@ public class NumPaths {
         int m = scanner.nextInt();
         int s = scanner.nextInt();
         int t = scanner.nextInt();
-        LinkedList<Integer>[] graph = new LinkedList[n];
-        for (int i = 0; i < n; i++) {
-            graph[i] = new LinkedList<>();
-        }
+        Graph graph = new Graph(n, m);
         for (int i = 0; i < m; i++) {
             int a = scanner.nextInt()-1;
             int b = scanner.nextInt()-1;
-            graph[a].add(b);
-            if (a != b) graph[b].add(a);
+            graph.addEdge(a, b);
         }
-        System.out.println(Arrays.toString(graph));
+        System.out.println(graph);
+        for (int node : graph.BFS(0)) {
+            System.out.println(node);
+        }
     }
 }
