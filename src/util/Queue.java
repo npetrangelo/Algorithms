@@ -1,3 +1,8 @@
+package util;
+
+import util.LinkedList;
+import util.Node;
+
 public class Queue<E> extends LinkedList<E> {
     private Node<E> tail;
 

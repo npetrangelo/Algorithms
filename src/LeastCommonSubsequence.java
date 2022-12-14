@@ -1,3 +1,5 @@
+import util.LinkedList;
+
 import java.util.Arrays;
 
 public class LeastCommonSubsequence {

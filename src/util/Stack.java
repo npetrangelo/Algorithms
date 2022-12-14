@@ -1,3 +1,7 @@
+package util;
+
+import util.LinkedList;
+
 public class Stack<E> extends LinkedList<E> {
     public Stack() {
         super();
